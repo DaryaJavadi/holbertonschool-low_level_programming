@@ -4,7 +4,7 @@
 #include <stdio.h>
 /**
  *main-give the info about prog
- *return: gives 0
+ *Return: Always 0
  */
 int main(void)
 {
