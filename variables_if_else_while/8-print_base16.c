@@ -16,6 +16,6 @@ int main(void)
 		putchar(num);
 	for (alph='A'; alph <= 'F'; alph++)
 		putchar(alph);
-	putchar ('\n')
+	putchar ('\n');
 	return (0);
 }
