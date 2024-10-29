@@ -1,7 +1,7 @@
 /**
  *mul-multiples 2 integers
- *a:first input
- *b:second input
+ *@a:first input
+ *@b:second input
  *Return: a*b
  */
 #include <stdio.h>
