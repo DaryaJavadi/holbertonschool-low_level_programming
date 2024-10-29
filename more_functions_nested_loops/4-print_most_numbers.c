@@ -1,7 +1,6 @@
 /**
- *print_most_numbers numbers from 0 to 9
- *@i:input
- *Return: Always 0
+ *print_most_numbers numbers from 0 to 9,skipping 2 and 4
+ *Return: void
  */
 #include <stdio.h>
 #include"main.h"
