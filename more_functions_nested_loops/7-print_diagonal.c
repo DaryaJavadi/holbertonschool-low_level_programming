@@ -1,5 +1,5 @@
 /**
-*print_line - Prints the lines,
+*print_diagonal - Prints the lines,
 *                      n times, followed by a new line.
 *@n: n times
 *Return: Always 0
