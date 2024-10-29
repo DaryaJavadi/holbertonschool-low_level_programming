@@ -5,8 +5,11 @@
 #include <stdio.h>
 void print_numbers(void)
 {
-	for (int i = 0; i < 100; i++) {
-		_putchar (i)
+	i=0
+	while (i < 10)
+	{
+		i++;
+		_putchar (i);
 	}
-	_putchar('\n')
+	_putchar('\n');
 }
