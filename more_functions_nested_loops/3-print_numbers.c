@@ -3,7 +3,6 @@
  *Return: Always 0
  */
 #include <stdio.h>
-void _putchar(char c);
 void print_numbers(void)
 {
 	int i=0;
