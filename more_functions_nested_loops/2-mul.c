@@ -1,6 +1,7 @@
 /**
- *multiple-multiples 2 integers
- *@c: input for numbers
+ *mul-multiples 2 integers
+ *a:first number
+ *b:second number
  *Return: a*b
  */
 #include <stdio.h>
