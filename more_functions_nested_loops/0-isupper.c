@@ -2,7 +2,9 @@
 /**
  *_isupper-checks if the c is in uppercase
  *
- * return 1 is uppercase, else return 0
+ *@c: input for alphabet
+ *
+ * Return: 1 if uppercase, else return 0
  */
 int _isupper(int c)
 {
