@@ -20,9 +20,9 @@ void print_triangle(int size)
 	{
 	for (j = i; j < size; j++)
 	{
-                _putchar(' ');
+		_putchar(' ');
 	}
-            for ( k = 1; k <= i; k++)
+	for ( k = 1; k <= i; k++)
 	{
 		_putchar('#');
 	}
