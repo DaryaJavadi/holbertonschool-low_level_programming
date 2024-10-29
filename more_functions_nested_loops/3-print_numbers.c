@@ -3,6 +3,7 @@
  *Return: Always 0
  */
 #include <stdio.h>
+#include"main.h"
 void print_numbers(void)
 {
 	int i=0;
