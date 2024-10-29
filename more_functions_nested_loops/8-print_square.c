@@ -1,6 +1,7 @@
 /**
 *print_square - Prints the lines,
 *                      n times, followed by a new line.
+*@size: size of square
 *Return: Always 0
 */
 #include <stdio.h>
