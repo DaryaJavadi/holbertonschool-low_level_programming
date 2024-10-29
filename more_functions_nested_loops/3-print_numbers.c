@@ -5,11 +5,11 @@
 #include <stdio.h>
 void print_numbers(void)
 {
-	i=0
+	int i=0
 	while (i < 10)
 	{
-		i++;
 		_putchar (i);
+		i++;
 	}
 	_putchar('\n');
 }
