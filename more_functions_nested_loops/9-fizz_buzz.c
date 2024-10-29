@@ -26,7 +26,11 @@ for (i = 1; i <= 100; i++)
 	{
 		printf("%d", i);
 	}
-	printf("\n");
+	if (i < 100)
+	{
+		printf(" ");
+	}
 }
-return (0);
+	printf("\n");
+	return (0);
 }
