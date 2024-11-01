@@ -8,5 +8,9 @@
 #include "main.h"
 int _strlen(char *s)
 {
+	if (s == NULL)
+	{
+		return 0;
+	}
 	return _strlen(s);
 }
