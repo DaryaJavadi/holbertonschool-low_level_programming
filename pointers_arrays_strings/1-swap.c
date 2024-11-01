@@ -1,6 +1,7 @@
 /**
  *swap_int - updates the value to 98
- *@temp: for temporary saving
+ *@a: input
+ *@b: input
  *
  */
 #include "main.h"
