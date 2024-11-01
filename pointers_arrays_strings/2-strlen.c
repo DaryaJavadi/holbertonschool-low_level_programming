@@ -1,5 +1,5 @@
 /**
- *strlen - calculate the len of string
+ *_strlen - calculate the len of string
  *@s: string
  *Return: len
  */
@@ -8,7 +8,8 @@
 #include "main.h"
 int _strlen(char *s)
 {
-	int len;	
+	int len;
+
 	for (len = 0; *s != '\0'; s++)
 		len++;
 	return (len);
