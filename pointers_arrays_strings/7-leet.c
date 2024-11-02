@@ -12,11 +12,11 @@ char *leet(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; normal_chars[j] != '\0'; j++)
+		for (j = 0; j < 10; j++)
 		{
 			if (str[i] == normal_chars[j])
 			{
-				str[i] = leet_chars[j];
+				str[i] = leet_chars[j % 5];
 				break;
 			}
 		}
