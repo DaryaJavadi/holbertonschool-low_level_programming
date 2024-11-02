@@ -6,14 +6,14 @@
 void print_rev(char *s)
 {
 int count = 0;
-while (count >= 0)
+while (s[count] != '\0')
 {
-	if (s[count] == '\0')
-		break;
 	count++;
 }
-
-	for (count--; count >= 0; count--)
-		_putchar(s[count]);
-	_putchar('\n');
+int i;
+for (i = count - 1; i >= 0; i--)
+{
+	write (1, &s[i], 1);
+}
+write(1, "\n", 1);
 }
