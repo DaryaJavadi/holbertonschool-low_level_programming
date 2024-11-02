@@ -7,9 +7,9 @@
 #include "main.h"
 void _puts(char *str)
 {
-	while (char *str)
+	while (*str)
 	{
 		putchar(*str++);
 	}
-	putchar('\n')
+	putchar('\n');
 }
