@@ -2,6 +2,7 @@
  *print_rev - print a string in reverse
  *@s: string
  */
+#include <unistd.h>
 #include "main.h"
 void print_rev(char *s)
 {
