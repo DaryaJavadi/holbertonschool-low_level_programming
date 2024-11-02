@@ -6,9 +6,9 @@
 #include "main.h"
 void rev_string(char *s)
 {
-    int len = 0;
-    int i;
-    char temp;
+	int len = 0;
+	int i;
+	char temp;
 	while (s[len] != '\0')
 	{
 	len++;
