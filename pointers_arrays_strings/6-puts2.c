@@ -6,11 +6,13 @@
 #include "main.h"
 void puts2(char *str)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; str[i] != '\0'; i += 2)
+	while (str[i] != '\0')
 	{
+	if (i % 2 == 0)
 		write(1, &str[i], 1);
+	i++;
 	}
 	write(1, "\n", 1);
 }
