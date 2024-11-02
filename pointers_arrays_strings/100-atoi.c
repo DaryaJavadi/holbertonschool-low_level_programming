@@ -3,6 +3,7 @@
  * @s: input string.
  * Return: integer.
  */
+#include <limits.h>
 #include <unistd.h>
 #include "main.h"
 int _atoi(char *s)
