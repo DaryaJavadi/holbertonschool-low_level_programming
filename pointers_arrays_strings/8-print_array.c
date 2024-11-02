@@ -1,6 +1,6 @@
 /**
  * print_array -  prints n elements of an array of integers
- * @*a: poiner of a
+ * @a: pointer
  * @n: number of elements
  */
 #include <stdio.h>
