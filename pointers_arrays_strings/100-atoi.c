@@ -21,12 +21,13 @@ int _atoi(char *s)
 	while (*s >= '0' && *s <= '9')
 	{
 	int digit = *s - '0';
+
 	if (sign == 1 && (result > (INT_MAX - digit) / 10))
-		return INT_MAX;
+		return (INT_MAX);
 	if (sign == -1 && (result > (INT_MAX - digit) / 10))
-		return INT_MIN;
+		return (INT_MIN);
 	result = result * 10 + digit;
-        s++;
+	s++;
 	}
 	return (result * sign);
 }
