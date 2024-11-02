@@ -15,11 +15,11 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 	if (src[i] != '\0')
 	{
-		dest[i] = src[i];  // Copy character from src
+		dest[i] = src[i];
 	}
 	else
 	{
-		dest[i] = '\0';  // Fill remaining space with null bytes
+		dest[i] = '\0';
 	}
 	}
 	return (dest);
