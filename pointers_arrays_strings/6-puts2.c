@@ -1,5 +1,5 @@
 /**
- *_puts - print a string automatically followe by a new line
+ *puts2 - print a string automatically followe by a new line
  *@str: string
  */
 #include <unistd.h>
@@ -8,7 +8,7 @@ void puts2(char *str)
 {
 	int i;
 
-	for (i = 0; str[i] != '\0'; i=i+2)
+	for (i = 0; str[i] != '\0'; i += 2)
 	{
 		write(1, &str[i], 1);
 	}
