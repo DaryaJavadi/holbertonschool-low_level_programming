@@ -1,3 +1,9 @@
+/**
+ * leet - encodes a string into 1337
+ * @s: input string.
+ * Return: the pointer to dest.
+ */
+#include "main.h"
 char *leet(char *str)
 {
 	char *leet_chars = "43071";
@@ -8,11 +14,11 @@ char *leet(char *str)
 	{
 		for (j = 0; normal_chars[j] != '\0'; j++)
 		{
-		if (str[i] == normal_chars[j])
-		{
-		str[i] = leet_chars[j];
-		break;
-		}
+			if (str[i] == normal_chars[j])
+			{
+				str[i] = leet_chars[j];
+				break;
+			}
 		}
 	}
 	return (str);
