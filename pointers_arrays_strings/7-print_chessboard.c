@@ -1,7 +1,7 @@
 /**
 * print_chessboard - check the code
 *
-* @a: 'var'
+* @a: is pointer yo a 2d array of 8 characters
 *
 * Return: Always 0.
 */
@@ -16,8 +16,8 @@ void print_chessboard(char (*a)[8])
 	{
 		for (j = 0; j < 8; j++)
 		{
-			_putchar(a[i][j]);
+			putchar(a[i][j]);
 		}
-				_putchar('\n');
+		putchar('\n');
 	}
 }
