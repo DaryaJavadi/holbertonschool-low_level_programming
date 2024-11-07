@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int count_words(char *s)
+{
+	int word_count = 0;
+    
+	while (*s != '\0')
+	{
+
+	while (*s == ' ')
+	{
+		s++; 
+	}
+       
+	if (*s != ' ' && *s != '\0')
+	{
+		word_count++; 
+
+	while (*s != ' ' && *s != '\0')
+	{
+		s++;
+	}
+	}
+        
+	}
+
+	return word_count;
+}
+
+int main()
+{
+	char s[] = "Holberton School is the best";
+	int num_words = count_words(s);
+	printf("Number of words in the sentence: %d\n", num_words);
+	return 0;
+}

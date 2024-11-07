@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+float calculate_average(int *arr, int n)
+{
+	if (n == 0) return 0;
+    
+	int sum = 0;
+	int *ptr = arr;
+
+	for (int i = 0; i < n; i++)
+	{
+	sum += *ptr;
+	ptr++;
+	}
+
+	return (float)sum / n;
+}
+
+int main()
+{
+	int arr[] = {1, 24, 35, 12, 1, 7};
+	int size = sizeof(arr) / sizeof(arr[0]);
+
+	float avg = calculate_average(arr, size);
+	printf("Average of the array elements: %.2f\n", avg);
+
+	return 0;
+}
