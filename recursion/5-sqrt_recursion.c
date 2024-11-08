@@ -26,6 +26,7 @@ int find_sqrt(int a, int i)
  * @n: number
  * Return: square root of given number
  */
+
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
