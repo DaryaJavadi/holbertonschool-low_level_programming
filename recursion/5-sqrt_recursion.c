@@ -1,44 +1,25 @@
+#include <stdio.h>
 #include "main.h"
 /**
- * find_sqrt - finds square root
- * @a: given number to find square root
- * @i: base case for recursion
- * Return: square
+ * checker - checks the input number from n to the base
+ * @n: number is squared and compared against base
+ * @base: base number to check
+ * Return: natural square root of number base
  */
-int find_sqrt(int a, int i)
+int checker(int n, int base)
 {
-	if (i * i == a)
-	{
-		return (i);
-        }
-	else if (i * i > a)
-	{
+	if (n * n == base)
+		return (n);
+	if (n * n > base)
 		return (-1);
-	}
-	else
-	{
-		return (find_sqrt(a, i + 1));
-	}
+	return (checker(n + 1, base));
 }
-
 /**
- * _sqrt_recursion - returns the square root of a number
- * @n: number
- * Return: square root of given number
+ * _sqrt_recursion - return the natural square root of a number n.
+ * @n: number to check for square roots.
+ * Return: the natural square root of number n
  */
-
 int _sqrt_recursion(int n)
 {
-	if (n < 0)
-	{
-		return (-1);
-	}
-	if (n == 0 || n == 1)
-	{
-		return (n);
-	}
-	else
-	{
-	return (find_sqrt(n, 2));
-	}
+	return (checker(1, n));
 }
