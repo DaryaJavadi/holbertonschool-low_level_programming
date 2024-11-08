@@ -1,23 +1,24 @@
 #include "main.h"
+
 /**
  * find_sqrt - finds square root
- * @n: given number to find square root
+ * @a: given number to find square root
  * @i: base case for recursion
  * Return: square
  */
-int find_sqrt(int n, int i)
+int find_sqrt(int a, int i)
 {
-	if (i * i == n)
+	if (i * i == a)
 	{
 		return (i);
         }
-	else if (i * i > n)
+	else if (i * i > a)
 	{
 		return (-1);
 	}
 	else
 	{
-	return (find_sqrt(n, i + 1));
+		return (find_sqrt(n, i + 1));
 	}
 }
 
