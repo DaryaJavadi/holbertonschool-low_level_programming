@@ -9,20 +9,31 @@
 #include <stdlib.h>
 int main(int argc, char *argv[])
 {
-	int i, j, sum = 0;
-
+	int add = 0, i = 0, j = 0;
+	if (argc == 1)
+	{
+		printf("0\n");
+	}
+	else
+	{
 	for (i = 1; i < argc; i++)
 	{
-		for (j = 0; argv[i][j]; j++)
+		while (argv[i][j] != '\0')
 		{
-			if (!isdigit(argv[i][j]))
+			if (argv[i][j] < '0' || argv[i][j] > '9')
 			{
-				printf("%s\n", "Error");
+				printf("Error\n");
 				return (1);
 			}
+		j++;
 		}
-		sum=sum+atoi(argv[i]);
+	j = 0;
 	}
-	printf("%i\n", sum);
+	for (i = 1; i < argc; i++)
+	{
+		add = add + atoi(argv[i]);
+	}
+	printf("%d\n", add);
+	}
 	return (0);
 }
