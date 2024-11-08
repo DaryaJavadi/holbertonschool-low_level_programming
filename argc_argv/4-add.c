@@ -30,9 +30,9 @@ int main(int argc, char *argv[])
 	j = 0;
 	}
 	for (i = 1; i < argc; i++)
-	{
-		add += atoi(argv[i]);
-	}
+		{
+			add += atoi(argv[i]);
+		}
 	printf("%d\n", add);
 	}
 	return (0);
