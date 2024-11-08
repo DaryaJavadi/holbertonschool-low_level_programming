@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * find_sqrt - finds square root
  * @a: given number to find square root
@@ -18,7 +17,7 @@ int find_sqrt(int a, int i)
 	}
 	else
 	{
-		return (find_sqrt(n, i + 1));
+		return (find_sqrt(a, i + 1));
 	}
 }
 
