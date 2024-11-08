@@ -15,8 +15,8 @@ int _sqrt_recursion(int n)
 
 /**
  * sqrt_checker - finds square root
- * @root: given number to find square root
- * @y: base case for recursion
+ * @n: given number to find square root
+ * @i: base case for recursion
  * Return: square
  */
 int find_sqrt(int n, int i)
@@ -25,7 +25,7 @@ int find_sqrt(int n, int i)
 	{
 		return (i);
 	}
-	if (i * i > n)
+	else if (i * i > n)
 	{
 		return (-1);
 	}
