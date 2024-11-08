@@ -1,11 +1,10 @@
 /**
- * main - check the code for Holberton School students.
- * @argc: The size of the argv array.
- * @argv: An array containing the program command line arguments
- *
- * Return: Always 0 || 1.
+ * main - prints out all of the arguments
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 0 on success
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	int i, j, sum = 0;
 
