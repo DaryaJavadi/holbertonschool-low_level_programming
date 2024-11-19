@@ -1,8 +1,8 @@
 /**
- * free_grid - function that frees a 2 dimensional grid previously created by alloc_grid function.
+ * free_grid - frees a 2 dimensional grid previously created function.
  * @grid: a pointer to the first column of the first row of the array
  * @height: number of rows in the array
- * Return: nothing
+ * Return: void
  */
 #include <stdlib.h>
 #include "main.h"
