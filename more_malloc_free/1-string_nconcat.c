@@ -1,6 +1,7 @@
 /**
- * *_strdup - duplicates
- * @str: string
+ * string_nconcat - Concatenates
+ * @s1: string 1
+ * @s2: string 2
  * Return: NULL if it fails
  */
 #include <stdlib.h>
