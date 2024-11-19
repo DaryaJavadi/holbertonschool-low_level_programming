@@ -7,11 +7,6 @@
 #include "main.h"
 char *_strdup(char *str)
 {
-	if (str == NULL)
-	{
-	return (NULL);
-	}
-
 	char *duplicate;
 	int len = 0;
 	int i = 0;
@@ -29,9 +24,10 @@ char *_strdup(char *str)
 	return (NULL);
 	}
 
-	for (i = 0; i <= len; i++)
+	while (str[i] != '\0')
 	{
-	duplicate[i] = str[i];
+		duplicate[i] = str[i];
+		i++;
 	}
 
 	return (duplicate);
