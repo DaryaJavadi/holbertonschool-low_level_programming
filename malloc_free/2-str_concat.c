@@ -8,7 +8,7 @@
 #include "main.h"
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int len1 = 0, len2 = 0, i = 0;
+	int len1 = 0, len2 = 0, i = 0;
 	char *result;
 
 	if (s1 == NULL)
