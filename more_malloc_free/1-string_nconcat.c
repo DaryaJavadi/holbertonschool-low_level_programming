@@ -9,32 +9,35 @@
 #include "main.h"
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int len1, len2, i, j;
-	char *result;
+	char *new_str;
+	unsigned int i = 0, lens1 = 0, lens2 = 0;
 
 	if (s1 == NULL)
 		s1 = "";
 
+	while (s1[lens1])
+		lens1++;
+
 	if (s2 == NULL)
 		s2 = "";
-	
-	len1 = strlen(s1);
-	len2 = strlen(s2);
 
-	if (n >= len2)
-        	n = len2;
+	while (s2[lens2])
+		lens2++;
 
-	result = malloc(len1 + n + 1);
-	if (result == NULL)
+	if (n >= lens2)
+		n = lens2;
+
+	new_str = malloc(lens1 + n + 1);
+	if (new_str == NULL)
 		return (NULL);
 
-	for (i = 0; i < len1; i++)
-		result[i] = s1[i];
-
-	for (j = 0; j < n; j++)
-		result[i + j] = s2[j];
-	
-	result[i + j] = '\0';
-
-	return (result);
+	for (; i < (lens1 + n); i++)
+	{
+		if (i < lens1)
+			new_str[i] = *s1, s1++;
+		else
+			new_str[i] = *s2, s2++;
+	}
+	new_str[i] = '\0';
+	return (new_str);
 }
