@@ -8,35 +8,31 @@
 #include "main.h"
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int l1, i, e;
-	char *a;
+	unsigned int len1, len2, i, j;
+	char *result;
 
 	if (s1 == NULL)
 		s1 = "";
 
 	if (s2 == NULL)
 		s2 = "";
-	l1 = 0;
+	
+	len1 = strlen(s1);
+	len2 = strlen(s2);
 
-	while (s1[l1])
-		l1++;
+	if (n >= len2)
+        	n = len2;
 
-	a = malloc(sizeof(*a) * l1 + n + 1);
-
-	if (a == NULL)
+	result = malloc(len1 + n + 1);
+	if (result == NULL)
 		return (NULL);
 
-	for (i = 0, e = 0; i < (l1 + n); i++)
-	{
-		if (i < l1)
-		{
-			a[i] = s1[i];
-		}
-		else
-		{
-			a[i] = s2[e++];
-		}
-	}
-	a[i] = '\0';
-	return (a);
+	for (i = 0; i < len1; i++)
+		result[i] = s1[i];
+
+	for (j = 0; j < n; j++)
+		result[i + j] = s2[j];
+		result[i + j] = '\0';
+
+	return (result);
 }
