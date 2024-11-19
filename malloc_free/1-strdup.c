@@ -1,5 +1,5 @@
 /**
- *create_array - gives specific characters to make an array
+ *_strdup - duplicates
  *@str: string
  *Return: NULL if it fails
  */
@@ -13,15 +13,16 @@ char *_strdup(char *str)
 	}
 
 	char *duplicate;
-	unsigned int len = 0;
-	unsigned int i = 0;
+	int len = 0;
+	int i = 0;
 
-	while (str[len] != '\0')
-	{
-	len++;
-	}
+	duplicate = malloc(sizeof(str));
 
-	duplicate = malloc((len + 1) * sizeof(char));
+	while (str[i] != '\0')
+        {
+        	len++;
+		i++;
+        }
 
 	if (duplicate == NULL)
 	{
