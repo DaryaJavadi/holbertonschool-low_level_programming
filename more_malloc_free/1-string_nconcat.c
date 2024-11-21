@@ -1,11 +1,13 @@
 /**
- * string_nconcat - Concatenates
+ * *string_nconcat - Concatenates
  * @s1: string 1
  * @s2: string 2
+ * @n: count of elements from second str
  * Return: NULL if it fails
  */
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "main.h"
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
