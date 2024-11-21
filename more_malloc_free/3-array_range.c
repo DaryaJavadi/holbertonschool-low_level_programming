@@ -4,10 +4,10 @@
  * @max: max
  * Return: Always 0.
  */
+#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
-#include "main.h"
 int *array_range(int min, int max)
 {
 	int *arr, i;
