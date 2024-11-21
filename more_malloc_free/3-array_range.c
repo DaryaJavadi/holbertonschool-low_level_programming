@@ -2,7 +2,7 @@
  * *array_range - array of integers
  * @min: min
  * @max: max
- * Return: array
+ * Return: Always 0.
  */
 #include <stdlib.h>
 #include <string.h>
@@ -16,7 +16,7 @@ int *array_range(int min, int max)
 	{
 		return (NULL);
 	}
-	arr = malloc(sizeof(int) * (max - min + 1));
+	arr = malloc(sizeof(int)*(max - min + 1));
 	
 	if (arr == NULL)
 	{
