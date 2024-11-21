@@ -9,9 +9,8 @@
 #include "main.h"
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j, len1, len2;
-	char *new_string;
-
+	unsigned int i = 0, j = 0, k = 0;
+	char *str;
 	if (s1 == NULL)
 	{
 		s1 = "";
@@ -20,32 +19,31 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s2 = "";
 	}
-	for (len1 = 0; s1[len1] != '\0'; len1++)
+	while (*(s1 + i))
 	{
-		;
+		i++;
 	}
-	for (len2 = 0; s2[len2] != '\0'; len2++)
+	while (*(s2 + j))
 	{
-		;
+		j++;
 	}
-	if (n >= len2)
+	if (n >= j)
 	{
-		n = len2;
+		n = j;
 	}
-	new_string = malloc((len1 + n + 1) * sizeof(char));
-
-	if (new_string == NULL)
+	str = malloc(sizeof(char) * (i + n) + 1);
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < len1; i++)
+	while (k < (i + n))
 	{
-		new_string[i] = s1[i];
+		if (k < i)
+			*(str + k) = *(s1 + k);
+		else
+			*(str + k) = *(s2 + k - i);
+		k++;
 	}
-	for (j = 0; j < n; j++)
-	{
-		new_string[j + i] = s2[j];
-	}
-	new_string[i + n] = '\0';
-	return (new_string);
+	str[k] = '\0';
+	return (str);
 }
