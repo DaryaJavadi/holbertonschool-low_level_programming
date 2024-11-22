@@ -8,13 +8,16 @@
 #include "dog.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *p;
+
 	p = malloc(sizeof(dog_t));
 	if (p == NULL)
 		return (NULL);
-	if (name !== NULL)
+
+	if (name != NULL)
 	{
 		p->name = malloc(strlen(name) + 1);
 		if (p->name == NULL)
@@ -29,7 +32,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(p);
 		return (NULL);
 	}
-	if (owner !== NULL)
+
+	if (owner != NULL)
 	{
 		p->owner = malloc(strlen(owner) + 1);
 		if (p->owner == NULL)
