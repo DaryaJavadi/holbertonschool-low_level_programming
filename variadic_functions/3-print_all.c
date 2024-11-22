@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+/**
+ * print_all- function to prints anything
+ * @format: - arguments passed to the function
+ * Return: Always 0
+ */
 void print_all(const char * const format, ...)
 {
 	int i = 0;
