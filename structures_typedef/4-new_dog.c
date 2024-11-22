@@ -1,6 +1,5 @@
 /**
  * new_dog - entry point
- * @d: variable to initialize
  * @name: dog's name.
  * @age: dog's age.
  * @owner: dog's owner.
@@ -15,20 +14,40 @@ dog_t *new_dog(char *name, float age, char *owner)
 	p = malloc(sizeof(dog_t));
 	if (p == NULL)
 		return (NULL);
-	if (name == NULL)
+	if (name !== NULL)
+	{
+		p->name = malloc(strlen(name) + 1);
+		if (p->name == NULL)
+		{
+			free(p);
+			return (NULL);
+		}
+		strcpy(p->name, name);
+	}
+	else
 	{
 		free(p);
-		free(owner);
 		return (NULL);
 	}
-	if (owner == NULL)
+	if (owner !== NULL)
 	{
+		p->owner = malloc(strlen(owner) + 1);
+		if (p->owner == NULL)
+		{
+		free(p->name);
 		free(p);
-		free(name);
+		return (NULL);
+		}
+		strcpy(p->owner, owner);
+	}
+	else
+	{
+		free(p->name);
+		free(p);
 		return (NULL);
 	}
-	p->name = name;
+
 	p->age = age;
-	p->owner = owner;
+
 	return (p);
 }
