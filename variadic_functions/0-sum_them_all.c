@@ -6,15 +6,19 @@
 #include "variadic_functions.h"
 int sum_them_all(const unsigned int n, ...)
 {
+	va_list args;
 	unsigned int i;
-	va_list list;
-	int sum;
+	int s = 0;
 
-	va_start(list, n);
-	for (i = 0, sum = 0; i < n; i++)
-		sum += va_arg(list, int);
+	va_start(args, n);
 
-	va_end(list);
-
-	return (sum);
+	if (n == 0)
+		return (0);
+	for (i = 0; i < n; i++)
+	{
+		int x = va_arg(args, int);
+		s += x;
+	}
+	va_end(args);
+	return (s);
 }
