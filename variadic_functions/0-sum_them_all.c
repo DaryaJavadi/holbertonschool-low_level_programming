@@ -4,21 +4,19 @@
  * Return: total sum
  */
 #include "variadic_functions.h"
+#include <stdlib.h>
+#include <stdarg.h>
 int sum_them_all(const unsigned int n, ...)
 {
-	va_list args;
 	unsigned int i;
-	int s = 0;
+	va_list list;
+	int sum;
 
-	va_start(args, n);
+	va_start(list, n);
+	for (i = 0, sum = 0; i < n; i++)
+		sum += va_arg(list, int);
 
-	if (n == 0)
-		return (0);
-	for (i = 0; i < n; i++)
-	{
-		int x = va_arg(args, int);
-		s += x;
-	}
-	va_end(args);
-	return (s);
+	va_end(list);
+
+	return (sum);
 }
