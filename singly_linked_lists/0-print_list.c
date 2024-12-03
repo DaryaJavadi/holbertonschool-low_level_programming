@@ -2,6 +2,7 @@
  * print_list - function with one argument
  * @h: const pointer type
  * Return: number of nodes
+ * Description: prints all the elements of a list_t list
  */
 #include <stdio.h>
 #include "lists.h"
