@@ -1,31 +1,75 @@
-/**
- * add_node_end - adds the node to the end.
- * @head: double pointer of the head list.
- * @str: char string.
- * Return: addnode of the list to the end.
- **/
-#include "header.h"
 #include <stdlib.h>
-list *add_node_end(list **head, char *str)
-{
-	list *temp = *head;
-	list *place = *head;
-	list *new = malloc(sizeof(list));
+#include "lists.h"
 
-	if (!new)
+/**
+ * add_node_end - function with two arguments
+ * @head: pointer to struct of linked list
+ * @str: char type pointer to string
+ * Return: address of new element
+ */
+list_t *add_node_end(list_t **head, const char *str)
+{
+	int count = 0;
+	list_t *end_node, *cursor;
+
+	end_node = malloc(sizeof(list_t));
+	if (end_node == NULL)
 		return (NULL);
 
-	new->s = _strdup(str);
-
-	if (!*head)
+	if (str)
 	{
-		*head = new;
-		return (new);
+		end_node->str = _strdup(str);
+		while (str[count] != '\0')
+			count++;
+		end_node->len = count;
 	}
-	while (temp->next != NULL)
-		temp = temp->next;
-	temp->next = new;
-	new->next = NULL;
+	else
+	{
+		end_node->str = NULL;
+		end_node->len = 0;
+	}
+	end_node->next = NULL;
+	if (*head)
+	{
+	cursor = *head;
+	while (cursor->next != NULL)
+		cursor = cursor->next;
+	cursor->next = end_node;
+	}
+	else
+		*head = end_node;
+	return (end_node);
+}
 
-	return (place);
+/**
+ * *_strdup - function with one argument
+ * @str: string argument
+ * Return: pointer
+ */
+char *_strdup(const char *str)
+{
+	int i, j;
+	char *ptr;
+
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (*(str + i) != '\0')
+	{
+		i++;
+	}
+
+	ptr = malloc(sizeof(char) * i + 1);
+
+	if (ptr == NULL)
+		return (NULL);
+
+	j = 0;
+	while (str[j] != '\0')
+	{
+		ptr[j] = str[j];
+		j++;
+	}
+	ptr[j] = '\0';
+	return (ptr);
 }
