@@ -3,7 +3,8 @@
  * @b: binary string
  * Return: decimal (unsigned int)
  */
-#include "coding.h"
+#include "main.h"
+#include <stdlib.h>
 #include <stdio.h>
 unsigned int binary_to_uint(const char *b)
 {
