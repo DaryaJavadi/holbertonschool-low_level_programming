@@ -1,9 +1,7 @@
 /**
  * print_dlistint - function with one arguments
  * @h: linked list pointer
- *
- * Description: prints all the elements of doubly linked list
- * Return: number of nodes
+  Return: number of nodes
  */
 #include <stdio.h>
 #include "lists.h"
