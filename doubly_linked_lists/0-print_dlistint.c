@@ -1,7 +1,7 @@
 /**
  * print_dlistint - function with one arguments
  * @h: linked list pointer
-  Return: number of nodes
+ * Return: number of nodes
  */
 #include <stdio.h>
 #include "lists.h"
