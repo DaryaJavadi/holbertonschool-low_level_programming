@@ -1,109 +1,61 @@
 #include "main.h"
-#include "holberton.h"
-#include <stdio.h>
+char *create_buffer(char *file);
+void close_file(int fd);
 
 /**
- * from_to - reads from from and writes to copy stops when rd < 0
- * @cpy: struct
+ * create_buffer - to allocate 1024 bytes
+ * @file: name of the file buffer is storing chars
+ * Return: A pointer to the newly-allocated buffer
  */
-
-void from_to(copy_struct *cpy)
+char *create_buffer(char *file)
 {
-	cpy->rd = 1;
+	char *buffer;
 
-	while (cpy->rd)
+	buffer = malloc(sizeof(char) * 1024);
+
+	if (buffer == NULL)
 	{
-		cpy->rd = read(cpy->from_file, cpy->buffer, 1204);
-		if (cpy->rd < 0)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", cpy->from);
-			exit(98);
-		}
-
-		cpy->wt = write(cpy->to_file, cpy->buffer, cpy->rd);
-		if (cpy->wt < 0)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", cpy->to);
-			exit(99);
-		}
-	}
-}
-
-/**
- * file_copy - copies one file to another name
- * @cpy: struct
- */
-
-void file_copy(copy_struct *cpy)
-{
-	cpy->from_file = open(cpy->from, O_RDONLY);
-
-	if (cpy->from_file < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", cpy->from);
-		exit(98);
-	}
-
-	cpy->to_file = open(cpy->to, O_CREAT | O_WRONLY | O_TRUNC,
-			S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-
-	if (cpy->to_file < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", cpy->to);
+		dprintf(STDERR_FILENO,
+			"Error: Can't write to %s\n", file);
 		exit(99);
 	}
 
-	from_to(cpy);
-
-	cpy->wt = close(cpy->from_file);
-	if (cpy->wt < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cpy->from_file);
-		exit(100);
-	}
-
-	cpy->wt = close(cpy->to_file);
-	if (cpy->wt < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", cpy->to_file);
-		exit(100);
-	}
-
+	return (buffer);
 }
 
 /**
- * init_struct - initializes copy struct
- * @cpy: struct
- * @argv: arguments to put into struct
+ * close_file - closes file descriptors
+ * @fd: file descriptor to be closed
  */
-
-void init_struct(copy_struct *cpy, char **argv)
+void close_file(int fd)
 {
-	if (cpy == NULL)
-		return;
+	int c;
 
-	if (argv == NULL)
-		return;
+	c = close(fd);
 
-	cpy->from = argv[1];
-	cpy->to = argv[2];
-	cpy->buffer = malloc(sizeof(char) * 1204);
-
-	if (cpy->buffer == NULL)
-		exit(-1);
+	if (c == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
 }
 
 /**
- * main - entry point
- * @argc: a
- * @argv: argument vector
+ * main - copies the contents of file to another
+ * @argc: number of args supplied to the program
+ * @argv: array of pointers to arguments
  *
- * Return: 0
+ * Return: 0 if success
+ *
+ * Description: If the argument count is incorrect - exit code 97.
+ *              If file_from does not exist or cannot be read - exit code 98.
+ *              If file_to cannot be created or written to - exit code 99.
+ *              If file_to or file_from cannot be closed - exit code 100.
  */
-
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	copy_struct *cp_command;
+	int from, to, r, w;
+	char *buffer;
 
 	if (argc != 3)
 	{
@@ -111,26 +63,37 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
-	if (argv[1] == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
+	buffer = create_buffer(argv[2]);
+	from = open(argv[1], O_RDONLY);
+	r = read(from, buffer, 1024);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	if (argv[2] == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
+	do {
+		if (from == -1 || r == -1)
+		{
+			dprintf(STDERR_FILENO,
+				"Error: Can't read from file %s\n", argv[1]);
+			free(buffer);
+			exit(98);
+		}
 
-	cp_command = malloc(sizeof(copy_struct));
+		w = write(to, buffer, r);
+		if (to == -1 || w == -1)
+		{
+			dprintf(STDERR_FILENO,
+				"Error: Can't write to %s\n", argv[2]);
+			free(buffer);
+			exit(99);
+		}
 
-	if (cp_command == NULL)
-		return (0);
+		r = read(from, buffer, 1024);
+		to = open(argv[2], O_WRONLY | O_APPEND);
 
-	init_struct(cp_command, argv);
+	} while (r > 0);
 
-	file_copy(cp_command);
+	free(buffer);
+	close_file(from);
+	close_file(to);
 
 	return (0);
 }
